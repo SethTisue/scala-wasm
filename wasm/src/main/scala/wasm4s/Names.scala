@@ -204,6 +204,7 @@ object Names {
     val vtable = new WasmFieldName("vtable")
     val itable = new WasmFieldName("itable")
     val itables = new WasmFieldName("itables")
+    val arrayField = new WasmFieldName("field")
   }
 
   // GC types ====
@@ -225,7 +226,7 @@ object Names {
       def apply(ty: IRTypes.ArrayType) = {
         val ref = ty.arrayTypeRef
         // TODO: better naming?
-        new WasmArrayTypeName(s"${ref.base.displayName}_${ref.dimensions}")
+        new WasmArrayTypeName(s"array_${ref.base.displayName}_${ref.dimensions}")
       }
       val itables = new WasmArrayTypeName("itable")
     }
